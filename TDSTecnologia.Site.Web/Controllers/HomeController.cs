@@ -43,5 +43,57 @@ namespace TDSTecnologia.Site.Web.Controllers
             }
             return View(curso);
         }
+
+        public async Task<IActionResult> Detalhes(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var curso = await _context.CursoDao.FirstOrDefaultAsync(m => m.Id == id);
+            if (curso == null)
+            {
+                return NotFound();
+            }
+
+            return View(curso);
+        }
+
+        public async Task<IActionResult> Alterar(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var curso = await _context.CursoDao.FindAsync(id);
+
+            if (curso == null)
+            {
+                return NotFound();
+            }
+            return View(curso);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Alterar(int id, [Bind("Id,Nome,Descricao,QuantidadeAula,DataInicio")] Curso curso)
+        {
+            if (id != curso.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                _context.Update(curso);
+                await _context.SaveChangesAsync();
+
+
+                return RedirectToAction(nameof(Index));
+            }
+            return View(curso);
+        }
     }
 }
