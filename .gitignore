@@ -3,3 +3,7 @@
 .vs
 /TDSTecnologia.Site.Web/obj
 /TDSTecnologia.Site.Web/bin
+/TDSTecnologia.Site.Infrastructure/obj
+/TDSTecnologia.Site.Infrastructure/bin
+/TDSTecnologia.Site.Core/obj
+/TDSTecnologia.Site.Core/bin
