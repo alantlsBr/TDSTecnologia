@@ -1,0 +1,120 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\VisualStudioProjects\\TDSTecnologia\\TDSTecnologia.Site.Infrastructure\\TDSTecnologia.Site.Infrastructure.csproj": {}
+  },
+  "projects": {
+    "C:\\VisualStudioProjects\\TDSTecnologia\\TDSTecnologia.Site.Core\\TDSTecnologia.Site.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\VisualStudioProjects\\TDSTecnologia\\TDSTecnologia.Site.Core\\TDSTecnologia.Site.Core.csproj",
+        "projectName": "TDSTecnologia.Site.Core",
+        "projectPath": "C:\\VisualStudioProjects\\TDSTecnologia\\TDSTecnologia.Site.Core\\TDSTecnologia.Site.Core.csproj",
+        "packagesPath": "C:\\Users\\Aluno\\.nuget\\packages\\",
+        "outputPath": "C:\\VisualStudioProjects\\TDSTecnologia\\TDSTecnologia.Site.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Aluno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\VisualStudioProjects\\TDSTecnologia\\TDSTecnologia.Site.Infrastructure\\TDSTecnologia.Site.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\VisualStudioProjects\\TDSTecnologia\\TDSTecnologia.Site.Infrastructure\\TDSTecnologia.Site.Infrastructure.csproj",
+        "projectName": "TDSTecnologia.Site.Infrastructure",
+        "projectPath": "C:\\VisualStudioProjects\\TDSTecnologia\\TDSTecnologia.Site.Infrastructure\\TDSTecnologia.Site.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Aluno\\.nuget\\packages\\",
+        "outputPath": "C:\\VisualStudioProjects\\TDSTecnologia\\TDSTecnologia.Site.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Aluno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\VisualStudioProjects\\TDSTecnologia\\TDSTecnologia.Site.Core\\TDSTecnologia.Site.Core.csproj": {
+                "projectPath": "C:\\VisualStudioProjects\\TDSTecnologia\\TDSTecnologia.Site.Core\\TDSTecnologia.Site.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
