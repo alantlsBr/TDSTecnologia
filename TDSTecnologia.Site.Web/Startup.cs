@@ -28,6 +28,8 @@ namespace TDSTecnologia.Site.Web
                 app.UseMvcWithDefaultRoute();
             }
 
+            app.UseStaticFiles();
+
         }
     }
 }
