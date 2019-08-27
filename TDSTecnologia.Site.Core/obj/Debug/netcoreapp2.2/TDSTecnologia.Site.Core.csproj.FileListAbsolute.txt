@@ -1,8 +1,0 @@
-C:\VisualStudioProjects\TDSTecnologia\TDSTecnologia.Site.Core\bin\Debug\netcoreapp2.2\TDSTecnologia.Site.Core.deps.json
-C:\VisualStudioProjects\TDSTecnologia\TDSTecnologia.Site.Core\bin\Debug\netcoreapp2.2\TDSTecnologia.Site.Core.dll
-C:\VisualStudioProjects\TDSTecnologia\TDSTecnologia.Site.Core\bin\Debug\netcoreapp2.2\TDSTecnologia.Site.Core.pdb
-C:\VisualStudioProjects\TDSTecnologia\TDSTecnologia.Site.Core\obj\Debug\netcoreapp2.2\TDSTecnologia.Site.Core.csproj.CoreCompileInputs.cache
-C:\VisualStudioProjects\TDSTecnologia\TDSTecnologia.Site.Core\obj\Debug\netcoreapp2.2\TDSTecnologia.Site.Core.AssemblyInfoInputs.cache
-C:\VisualStudioProjects\TDSTecnologia\TDSTecnologia.Site.Core\obj\Debug\netcoreapp2.2\TDSTecnologia.Site.Core.AssemblyInfo.cs
-C:\VisualStudioProjects\TDSTecnologia\TDSTecnologia.Site.Core\obj\Debug\netcoreapp2.2\TDSTecnologia.Site.Core.dll
-C:\VisualStudioProjects\TDSTecnologia\TDSTecnologia.Site.Core\obj\Debug\netcoreapp2.2\TDSTecnologia.Site.Core.pdb
