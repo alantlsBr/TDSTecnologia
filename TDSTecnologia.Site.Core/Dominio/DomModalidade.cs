@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TDSTecnologia.Site.Core.Dominio
 {
-    public enum EnumModalidade
+    public enum DomModalidade
     {
         EAD,
         Presencial
