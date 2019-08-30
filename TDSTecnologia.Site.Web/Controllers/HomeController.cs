@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TDSTecnologia.Site.Core.Entities;
+using TDSTecnologia.Site.Core.Utilitarios;
 using TDSTecnologia.Site.Infrastructure.Data;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -47,12 +48,10 @@ namespace TDSTecnologia.Site.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Novo([Bind("Id,Nome,Descricao,QuantidadeAula,DataInicio,Turno")] Curso curso, IFormFile arquivo)
         {
-            if (arquivo != null && arquivo.ContentType.ToLower().StartsWith("image/"))
-            {
-                MemoryStream ms = new MemoryStream();
-                await arquivo.OpenReadStream().CopyToAsync(ms);
-                curso.Banner = ms.ToArray();
-            }
+           
+            UtilImagem uImagem = new UtilImagem();
+
+            curso.Banner = uImagem.ConvertarParaByte(arquivo).ToArray();
 
             if (ModelState.IsValid)
             {

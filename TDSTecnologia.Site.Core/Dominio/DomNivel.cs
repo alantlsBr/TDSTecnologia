@@ -6,8 +6,8 @@ namespace TDSTecnologia.Site.Core.Dominio
 {
     public enum DomNivel
     {
-        Basico,
-        Intermediário,
-        Avançado
+        BASICO,
+        INTERMEDIARIO,
+        AVANCADO
     }
 }

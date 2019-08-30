@@ -7,6 +7,6 @@ namespace TDSTecnologia.Site.Core.Dominio
     public enum DomModalidade
     {
         EAD,
-        Presencial
+        PRESENCIAL
     }
 }

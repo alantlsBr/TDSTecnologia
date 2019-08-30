@@ -35,13 +35,13 @@ namespace TDSTecnologia.Site.Core.Entities
         [Column("turno")]
         public DomTurno Turno { get; set; }
 
-        [NotMapped]
+        [Column("modalidade")]
         public DomModalidade Modalidade { get; set; }
 
-        [NotMapped]
+        [Column("vagas")]
         public int Vagas { get; set; }
 
-        [NotMapped]
+        [Column("nivel")]
         public DomNivel Nivel { get; set; }
 
     }
