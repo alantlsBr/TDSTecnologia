@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using TDSTecnologia.Site.Core.Entities;
 using TDSTecnologia.Site.Core.Utilitarios;
 using TDSTecnologia.Site.Infrastructure.Data;
+using TDSTecnologia.Site.Infrastructure.Repository;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,26 +17,21 @@ namespace TDSTecnologia.Site.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly CursoRespository _cursoRespository;
+
         public async Task<IActionResult> Index()
         {
-            List<Curso> cursos = await _context.CursoDao.ToListAsync();
-
-            cursos.ForEach(c =>
-            {
-                if (c.Banner != null)
-                {
-                    c.BannerBase64 = "data:image/png;base64," + Convert.ToBase64String(c.Banner, 0, c.Banner.Length);
-                }
-            });
+            List<Curso> cursos = await _cursoRespository.ListarTodos();
 
             return View(cursos);
         }
 
         private readonly AppContexto _context;
 
-        public HomeController(AppContexto context)
+        public HomeController(AppContexto context, CursoRespository cursoRespository)
         {
             _context = context;
+            _cursoRespository = cursoRespository;
         }
 
         [HttpGet]
