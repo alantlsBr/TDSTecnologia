@@ -9,7 +9,7 @@ namespace TDSTecnologia.Site.Core.Utilitarios
 {
     public class UtilImagem
     {
-        public byte[] ConvertarParaByte(IFormFile arquivo)
+        public static byte[] ConverterParaByte(IFormFile arquivo)
         {
             
             if (arquivo != null && arquivo.ContentType.ToLower().StartsWith("image/"))

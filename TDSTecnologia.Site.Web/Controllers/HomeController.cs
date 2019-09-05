@@ -10,6 +10,7 @@ using TDSTecnologia.Site.Core.Entities;
 using TDSTecnologia.Site.Core.Utilitarios;
 using TDSTecnologia.Site.Infrastructure.Data;
 using TDSTecnologia.Site.Infrastructure.Repository;
+using TDSTecnologia.Site.Infrastructure.Services;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,21 +18,17 @@ namespace TDSTecnologia.Site.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly CursoRespository _cursoRespository;
+        private readonly CursoService _cursoService;
 
-        public async Task<IActionResult> Index()
+        public HomeController(CursoService cursoService)
         {
-            List<Curso> cursos = await _cursoRespository.ListarTodos();
-
-            return View(cursos);
+            _cursoService = cursoService;
         }
 
-        private readonly AppContexto _context;
-
-        public HomeController(AppContexto context, CursoRespository cursoRespository)
+        public IActionResult Index()
         {
-            _context = context;
-            _cursoRespository = cursoRespository;
+            List<Curso> cursos = _cursoService.ListarTodos();
+            return View(cursos);
         }
 
         [HttpGet]
@@ -42,30 +39,27 @@ namespace TDSTecnologia.Site.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Novo([Bind("Id,Nome,Descricao,QuantidadeAula,DataInicio,Turno")] Curso curso, IFormFile arquivo)
+        public IActionResult Novo([Bind("Id,Nome,Descricao,QuantidadeAula,DataInicio,Turno,Modalidade,Nivel,Vagas")] Curso curso, IFormFile arquivo)
         {
-           
-            UtilImagem uImagem = new UtilImagem();
-
-            curso.Banner = uImagem.ConvertarParaByte(arquivo).ToArray();
-
             if (ModelState.IsValid)
             {
-                _context.Add(curso);
-                await _context.SaveChangesAsync();
+                curso.Banner = UtilImagem.ConverterParaByte(arquivo);
+                _cursoService.Salvar(curso);
                 return RedirectToAction(nameof(Index));
             }
+
             return View(curso);
+
         }
 
-        public async Task<IActionResult> Detalhes(int? id)
+        public IActionResult Detalhes(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var curso = await _context.CursoDao.FirstOrDefaultAsync(m => m.Id == id);
+            var curso = _cursoService.PesquisarPorId(id);
             if (curso == null)
             {
                 return NotFound();
@@ -74,14 +68,14 @@ namespace TDSTecnologia.Site.Web.Controllers
             return View(curso);
         }
 
-        public async Task<IActionResult> Alterar(int ? id)
+        public IActionResult Alterar(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var curso = await _context.CursoDao.FindAsync(id);
+            var curso = _cursoService.PesquisarPorId(id);
 
             if (curso == null)
             {
@@ -92,7 +86,7 @@ namespace TDSTecnologia.Site.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Alterar(int id, [Bind("Id,Nome,Descricao,QuantidadeAula,DataInicio,Turno")] Curso curso)
+        public IActionResult Alterar(int id, [Bind("Id,Nome,Descricao,QuantidadeAula,DataInicio,Turno,Modalidade,Nivel,Vagas")] Curso curso)
         {
             if (id != curso.Id)
             {
@@ -101,25 +95,20 @@ namespace TDSTecnologia.Site.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                _context.Update(curso);
-                _context.Entry<Curso>(curso).Property(c => c.Banner).IsModified = false;
-                await _context.SaveChangesAsync();
-
-
+                _cursoService.Atualizar(curso);
                 return RedirectToAction(nameof(Index));
             }
             return View(curso);
         }
 
-        public async Task<IActionResult> Excluir(int? id)
+        public IActionResult Excluir(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var curso = await _context.CursoDao
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var curso = _cursoService.PesquisarPorId(id);
             if (curso == null)
             {
                 return NotFound();
@@ -130,11 +119,9 @@ namespace TDSTecnologia.Site.Web.Controllers
 
         [HttpPost, ActionName("Excluir")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ConfirmarExclusao(int id)
+        public IActionResult ConfirmarExclusao(int id)
         {
-            var curso = await _context.CursoDao.FindAsync(id);
-            _context.CursoDao.Remove(curso);
-            await _context.SaveChangesAsync();
+            _cursoService.Excluir(id);
             return RedirectToAction(nameof(Index));
         }
     }
