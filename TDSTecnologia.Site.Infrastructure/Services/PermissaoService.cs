@@ -34,5 +34,22 @@ namespace TDSTecnologia.Site.Infrastructure.Services
         {
             return await _permissaoRepository.ExistePermissao(permissao);
         }
+
+        public Permissao PesquisarPorId(string id)
+        {
+            return _permissaoRepository.PesquisarPorId(id);
+        }
+
+        public void Excluir(string id)
+        {
+            _permissaoRepository.Excluir(PesquisarPorId(id));
+            SaveChangesApp();
+        }
+
+        public void Atualizar(Permissao permissao)
+        {
+            _permissaoRepository.Atualizar(permissao);
+            SaveChangesApp();
+        }
     }
 }
