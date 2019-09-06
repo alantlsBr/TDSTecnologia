@@ -40,6 +40,7 @@ namespace TDSTecnologia.Site.Web
 
             }
 
+            app.UseAuthentication();
             app.UseStatusCodePages();
             app.UseMvcWithDefaultRoute();
             app.UseStaticFiles();
