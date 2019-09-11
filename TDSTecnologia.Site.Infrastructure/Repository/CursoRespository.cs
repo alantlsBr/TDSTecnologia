@@ -40,5 +40,12 @@ namespace TDSTecnologia.Site.Infrastructure.Repository
         {
             _context.CursoDao.Remove(curso);
         }
+
+        public List<Curso> PesquisarPorNomeDescricao(string texto)
+        {
+            List<Curso> cursos = _context.CursoDao.Where(x => EF.Functions.ILike(x.Nome, $"%{texto}%") || EF.Functions.ILike(x.Descricao, $"%{texto}%")).OrderBy(x => x.Nome).ToList();
+
+            return cursos;
+        }
     }
 }

@@ -37,6 +37,7 @@ namespace TDSTecnologia.Site.Web
             services.AddScoped<CursoRespository, CursoRespository>();
             services.AddScoped<CursoService, CursoService>();
             services.AddScoped<PermissaoService, PermissaoService>();
+            services.AddScoped<UsuarioService, UsuarioService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

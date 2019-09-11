@@ -16,7 +16,7 @@
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 fixed-top">
                 <div class="container">
                     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                        <img src="~/imagens/logo-tds.png" width="60" height="30" alt="" /> 
+                        <img src="~/imagens/logo-tds.png" width="60" height="30" alt="" />
                         TDS Tecnologia
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -36,6 +36,9 @@
                             </li>
                         </ul>
                     </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        @await Html.PartialAsync("_LoginPartial.cshtml")
+                    </ul>
                 </div>
             </nav>
         </header>

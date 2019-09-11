@@ -124,5 +124,7 @@ namespace TDSTecnologia.Site.Web.Controllers
             _cursoService.Excluir(id);
             return RedirectToAction(nameof(Index));
         }
+
+
     }
 }
