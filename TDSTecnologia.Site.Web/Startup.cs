@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TDSTecnologia.Site.Core.Entities;
 using TDSTecnologia.Site.Infrastructure.Data;
+using TDSTecnologia.Site.Infrastructure.Integrations.Email;
 using TDSTecnologia.Site.Infrastructure.Repository;
 using TDSTecnologia.Site.Infrastructure.Services;
 
@@ -38,6 +39,8 @@ namespace TDSTecnologia.Site.Web
             services.AddScoped<CursoService, CursoService>();
             services.AddScoped<PermissaoService, PermissaoService>();
             services.AddScoped<UsuarioService, UsuarioService>();
+            services.Configure<ConfiguracoesEmail>(Configuration.GetSection("ConfiguracoesEmail"));
+            services.AddScoped<IEmail, Email>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
