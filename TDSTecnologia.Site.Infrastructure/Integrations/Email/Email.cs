@@ -39,10 +39,5 @@ namespace TDSTecnologia.Site.Infrastructure.Integrations.Email
                 await smtpClient.SendMailAsync(mailMessage);
             }
         }
-
-        Task IEmail.EnviarEmail(string email, string assunto, string mensagem)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -12,6 +12,7 @@
     <div class="col-12 col-lg-8 offset-lg-2">
         <form asp-action="Novo" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <partial name="_MensagemPartial" />
 
             <div class="form-group">
                 <img src="#" name="arquivo" id="arquivo" height="300" width="300" class="border border-secondary rounded" style="display: none;" />
